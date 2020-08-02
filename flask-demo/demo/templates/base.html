@@ -1,0 +1,36 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Demo</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>Demo</h1>
+
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+
+<!--
+
+<section class="content">
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        var messages = {{ messages | safe }};
+        for (var i = 0; i < messages.length; i++) {
+          alert(messages[i]);
+        }
+      </script>
+    {% endif %}
+  {% endwith %}
+
+</section>
+
+
+-->

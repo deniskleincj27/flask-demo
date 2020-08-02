@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Please select files to download{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form action="{{ url_for('blog.download' )}}"  method="POST" enctype="multipart/form-data">
+
+  <div class="row">
+    <div class="col-3 menu">
+      <ul>
+        <input type="submit" name="action" value="Download" class="dkl_button">
+        <input type="submit" name="action" value="Cancel" class="dkl_button">
+      </ul>
+    </div>
+
+    <p></p>
+
+    <div class="col-9">
+
+      <hr>
+      {% for post in posts %}
+
+        <article class="post">
+          <input type="checkbox" name="cbox_name" value="{{post}}">{{ post['file_name'] }}</input>
+        </article>
+        <hr>
+        {% if not loop.last %}
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+
+
+  {% endblock %}
+

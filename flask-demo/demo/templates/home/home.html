@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+
+  <div class="dkl_header">
+    <h1 class="dkl_center" >Please Login or Register</h1>
+    <p></p>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ url_for('home.validate' )}}" method="post">
+
+    <div class="row">
+      <div class="col-3 menu">
+        <ul>
+          <input type="submit" name="action" value="Log In" class="dkl_button">
+          <input type="submit" name="action" value="Register" class="dkl_button">
+        </ul>
+      </div>
+
+      <div class="col-9">
+        <p>
+          <label for="username">Username:</label>
+          <input name="username" id="username" required>
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required>
+        </p>
+      </div>
+    </div>
+  </form>
+
+{% endblock %}
